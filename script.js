@@ -11,14 +11,14 @@ import questions from "./questoes.js";
 let currentIndex = 0;
 let questionsCorrect = 0;
 
-btnRestart.onclick = () => {
+btnRestart.addEventListener("click", () => {
   content.style.display = "flex";
   contentFinish.style.display = "none";
 
   currentIndex = 0;
   questionsCorrect = 0;
   loadQuestion();
-};
+});
 
 function nextQuestion(e) {
   if (e.target.getAttribute("data-correct") === "true") {
@@ -40,10 +40,11 @@ function finish() {
 }
 
 function loadQuestion() {
+  const p = document.createElement('p')
   spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`;
-  const item = questions[currentIndex];
+  let item = questions[currentIndex];
   answers.innerHTML = "";
-  question.innerHTML = item.question;
+  console.log(question.innerHTML = item.question)
 
   item.answers.forEach((answer) => {
     const div = document.createElement("div");
