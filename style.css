@@ -1,98 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
+/* Apply global font styling */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
   box-sizing: border-box;
-  font-family: 'poppins', sans-serif;
+  font-family: 'Press Start 2P', cursive; /* Pixel-style font */
 }
 
 body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  background: linear-gradient(90deg, rgba(91,30,159,1) 0%, rgba(77,39,182,1) 100%);
+  margin: 0;
 }
 
-body h2 {
-  color: white;
+.wrap-container {
+  border: 3px solid #8bfd98;
+  padding: 60px 100px 60px 100px;
+  border-radius: 20px;
 }
 
-main {
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 300px;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-}
-
-.spnQtd {
-  text-align: end;
-}
-
-.answers {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-button {
-  width: 100%;
-  text-align: start;
-  padding: 5px;
+.container {
+  background-color: #8be9fd; /* Light teal color for background */
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #008CCC;
-  color: white;
+  border-radius: 20px;
+  padding: 30px 82px 12px 82px;
 }
 
-.finish {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.finish button {
+.score {
+  color: #fff;
   text-align: center;
+  width: 50%;
+  background-color: #1d4ed8; /* Dark blue background for score */
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-label,
-textarea {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  justify-content:  space-around;
+.question {
+  font-size: 22px;
+  margin-bottom: 24px;
+  letter-spacing: 3px;
 }
 
-textarea {
-  padding: 10px;
-  max-width: 100%;
-  line-height: 1.5;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px #999;
-}
-.scoreTable{/*table do score, tela inicial*/
-  background-color: rgb(16, 15, 15);
-  margin-top: auto;
-  justify-content: center;
- white-space: 200px; 
+.option {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px;
 }
 
-main{
-  color: green;
+.options {
+background-color: #F4C542;
+border: 3px solid #111; 
+padding: 10px;
+font-size: 12px;        
+cursor: pointer;
+border-radius: 30px;
+box-shadow: 4px 4px 0 #222;
+transition: all 0.2s ease;
+}
+
+.options:hover {
+background-color: #E2B136;  /* Slightly darker yellow */
+box-shadow: 2px 2px 0 #111; /* Reduce shadow for pressed effect */
+}
+
+.options:active {
+box-shadow: none;           /* Remove shadow on press */
+background-color: #D2A62B;  /* Darker yellow on press */
+}
+
+.navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.nav-btn {
+background-color: white;
+padding: 10px 15px;
+margin-top: 20px;
+font-size: 12px;
+cursor: pointer;
+border: none;
+border-radius: 20px;
+box-shadow: 3px 3px 0 #222; /* Pixelated 3D shadow */
+transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+background-color: #ddd;
+box-shadow: 2px 2px 0 #111;
+}
+
+.nav-btn:active {
+box-shadow: none;
+}
+
+/* Keep the existing styles for the quiz */
+
+.modal {
+display: none; /* Hidden by default */
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+justify-content: center;
+align-items: center;
+}
+
+.modal-content {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+width: 300px;
+}
+
+.modal p {
+font-size: 12px;
+margin-bottom: 20px;
+}
+
+.modal-buttons {
+display: flex;
+justify-content: space-evenly;
+}
+
+.modal-btn {
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+}
+
+#yesBtn {
+background-color: #FF5C5C;
+}
+
+#noBtn {
+background-color: #00FF00;
+}
+
+.modal-btn:hover {
+opacity: 0.8;
 }

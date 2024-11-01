@@ -1,27 +1,44 @@
-const question = document.querySelector(".questoes");
-const answers = document.querySelector(".answers");
-const spnQtd = document.querySelector(".spnQtd");
-const textFinish = document.querySelector(".finish span");
-const content = document.querySelector(".content");
-const contentFinish = document.querySelector(".finish");
-const btnRestart = document.querySelector(".finish button");
-
 import questions from "./questoes.js";
+
+const questoes = document.querySelector(".question");
+const option = document.querySelector(".option");
+const nota = document.querySelector(".score");
+const content = document.querySelector(".container");
+const exitBtn = document.getElementById("exitBtn");
+const exitModal = document.getElementById("exitModal");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const nextBtn = document.getElementById("nextBtn");
+const textFinish = document.querySelector(".textFinish");
+const contentFinish = document.querySelector(".contentFinish");
 
 let currentIndex = 0;
 let questionsCorrect = 0;
 
-btnRestart.addEventListener("click", () => {
-  content.style.display = "flex";
-  contentFinish.style.display = "none";
+loadQuestion();
 
-  currentIndex = 0;
-  questionsCorrect = 0;
-  loadQuestion();
+// Show modal when "SAIR" is clicked
+exitBtn.addEventListener("click", () => {
+  exitModal.style.display = "flex";
 });
 
+// Hide modal when "Não" is clicked
+noBtn.addEventListener("click", () => {
+  exitModal.style.display = "none";
+});
+
+// Redirect when "Sim" is clicked
+yesBtn.addEventListener("click", () => {
+  alert("Saindo do quiz!");
+  window.location.href = "index.html"; // Example redirect
+});
+
+// Add event listener for "PRÓXIMO" button
+nextBtn.addEventListener("click", nextQuestion);
+
 function nextQuestion(e) {
-  if (e.target.getAttribute("data-correct") === "true") {
+  const selectedOption = e.target;
+  if (selectedOption.getAttribute("data-correct") === "true") {
     questionsCorrect++;
   }
 
@@ -34,33 +51,27 @@ function nextQuestion(e) {
 }
 
 function finish() {
-  textFinish.innerHTML = `você acertou ${questionsCorrect} de ${questions.length}`;
+  textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;
   content.style.display = "none";
   contentFinish.style.display = "flex";
 }
 
 function loadQuestion() {
-  const p = document.createElement('p')
-  spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`;
-  let item = questions[currentIndex];
-  answers.innerHTML = "";
-  console.log(question.innerHTML = item.question)
+  questoes.innerHTML = "";
+  option.innerHTML = "";
 
-  item.answers.forEach((answer) => {
+  const currentQuestion = questions[currentIndex];
+  questoes.innerHTML = currentQuestion.question;
+  nota.innerHTML = `${currentIndex + 1}/${questions.length}`;
+
+  currentQuestion.answers.forEach((answer) => {
     const div = document.createElement("div");
+    div.innerHTML = `<button class= "options" data-correct = "${answer.correct}"> ${answer.option} </button>`
+    div.setAttribute("data-correct", answer.correct);
+    div.addEventListener("click", nextQuestion);
 
-    div.innerHTML = `
-    <button class="answer" data-correct="${answer.correct}">
-      ${answer.option}
-    </button>
-    `;
-
-    answers.appendChild(div);
-  });
-
-  document.querySelectorAll(".answer").forEach((item) => {
-    item.addEventListener("click", nextQuestion);
+    option.appendChild(div);
   });
 }
 
-loadQuestion();
+loadQuestion()

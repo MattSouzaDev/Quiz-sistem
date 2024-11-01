@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <h2>QUIZ APP</h2>
-  <main>
-    <div class="content">
-      <span class="spnQtd"></span>
-      <span class="questoes"></span>
-      <div class="answers"></div>
+    <main class="wrap-container">
+    <div class="container">
+        <div class="score"></div>
+        <div class="question"></div>
+        <div class="option"></div>
+        
+        <div class="navigation">
+            <button class="nav-btn" id="exitBtn">SAIR</button>
+            <button class="nav-btn" id="nextBtn">PRÓXIMO</button>
+        </div>
     </div>
-    <div class="finish">
-      <span></span>
-      <button>Reiniciar</button>
+
+    <!-- Modal -->
+    <div class="modal" id="exitModal">
+        <div class="modal-content">
+            <p>Você deseja realmente sair?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn" id="yesBtn">Sim</button>
+                <button class="modal-btn" id="noBtn">Não</button>
+            </div>
+        </div>
     </div>
-  </main>
-  
-  <script src="script.js" type="module"></script>
+
+    <!-- Import script with type="module" -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
+
