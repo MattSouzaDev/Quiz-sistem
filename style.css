@@ -82,7 +82,7 @@ body h1{
   transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+.btn:active {
   background-color: #FC273C;
   box-shadow: 0 0 5px #5e030c, 0 0 10px #df172b;
 }
@@ -118,10 +118,10 @@ main {
 .answers {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
-.answers:hover{
+.answer:hover{
   background-color: #FC273C;
   box-shadow: 0 0 5px #5e030c, 0 0 10px #df172b;
 }
