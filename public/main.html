@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedBrain</title>
+  <link rel="icon" type="image/x-icon" href="Favicon/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="main">
+  <h2>RED BRAIN</h2>
+  <main>
+    <div class="content">
+      <span class="spnQtd"></span>
+      <span class="questoes"></span>
+      <div class="answers"></div>
+
+      <div class="navigation">
+        <button class="nav-btn" id="exitBtn">SAIR</button>
+        <button class="nav-btn" id="nextBtn">PRÓXIMO</button>
+      </div>
+    </div>
+
+    <div class="finish">
+
+      <span></span>
+      <p>Pra salvar seu Score insira seu nome</p>
+      <br>
+      <div class="input-div">
+        <form id="data-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="value">Value:</label>
+          <input type="number" id="value" name="value" required>
+          <br>
+          <button type="submit">Submit</button>
+        </form>
+
+      </div>
+
+      <p>Reiniciar sem salvar.</p>
+      <button class="btnRestart">Reiniciar</button>
+    </div>
+
+
+    <!-- Modal -->
+
+    <div class="modal" id="exitModal">
+      <div class="modal-content">
+
+        <p>Deseja salvar seu progresso?</p>
+        <button class="salvar">Salvar Progresso</button>
+        <br>
+        <p>Sair Sem salvar</p>
+        <div class="modal-buttons">
+          <button class="modal-btn" id="yesBtn">Sim</button>
+          <button class="modal-btn" id="noBtn">Não</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="script.js" type="module"></script>
+</body>
+
+<footer>
+  <p>&copy;2024 - RedBrain - Todos Os Direitos Reservados</p>
+</footer>
+
+</html>
